@@ -1,0 +1,21 @@
+name: askadev
+display_name: AskADev
+description: "Answers questions about GitHub repos in Slack. When mentioned or asked about a repo, researches the codebase and recent commits to provide informed answers in-thread."
+category: developer-tools
+
+connectors:
+  - catalog: slack
+    description: "Slack MCP server for reading messages and replying in threads"
+    slot_descriptions:
+      SLACK_BOT_TOKEN: "Slack bot token (xoxb-...) with chat:write, channels:history, channels:read, groups:read, groups:history, app_mentions:read scopes"
+      SLACK_TEAM_ID: "Slack workspace team ID (starts with T)"
+
+  - catalog: github
+    description: "GitHub MCP server for browsing repos, reading files, and fetching recent commits"
+    slot_descriptions:
+      GITHUB_PERSONAL_ACCESS_TOKEN: "GitHub personal access token with repo read access"
+
+channels:
+  - catalog: webhook
+    description: "Receives Slack messages and app mentions. Filters for questions about GitHub repos and responds in-thread."
+    slot_descriptions:
