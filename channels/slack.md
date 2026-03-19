@@ -7,10 +7,12 @@ The Slack event payload is appended directly after these instructions in the use
 Before doing anything else, check whether this message is worth responding to. **Stop immediately and take no action** if ANY of these are true:
 
 - The message is from a bot (check for `bot_id` or `subtype: "bot_message"` in the payload)
+- The message is from yourself (Valet-Claude user)
 - The message is a channel join/leave, topic change, or other system event
 - The message does not contain a question or request about a GitHub repository
 - The message is casual conversation, a greeting, emoji reaction, or off-topic chatter
 - The message is a simple acknowledgment like "thanks", "ok", "got it"
+- The message thread already has a relevant answer
 
 **How to detect a relevant message**: The message should reference a GitHub repo (by URL, `org/repo` shorthand, or repo name) AND ask a question or request information about it. Look for question marks, question words (what, how, why, where, when, who), or action requests (explain, show, find, check, look at).
 

@@ -4,7 +4,7 @@ description: "Answers questions about GitHub repos in Slack. When mentioned or a
 category: developer-tools
 
 connectors:
-  - catalog: slack
+  - catalog: slack-mcp
     description: "Slack MCP server for reading messages and replying in threads"
     slot_descriptions:
       SLACK_BOT_TOKEN: "Slack bot token (xoxb-...) with chat:write, channels:history, channels:read, groups:read, groups:history, app_mentions:read scopes"
@@ -16,6 +16,6 @@ connectors:
       GITHUB_PERSONAL_ACCESS_TOKEN: "GitHub personal access token with repo read access"
 
 channels:
-  - catalog: webhook
+  - catalog: slack-webhook
     description: "Receives Slack messages and app mentions. Filters for questions about GitHub repos and responds in-thread."
     slot_descriptions:
