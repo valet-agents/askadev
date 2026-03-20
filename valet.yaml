@@ -4,7 +4,7 @@ description: "Answers questions about GitHub repos in Slack. When mentioned or a
 category: developer-tools
 
 connectors:
-  - catalog: slack-mcp
+  - catalog: slack
     description: "Slack MCP server for reading messages and replying in threads"
     slot_descriptions:
       SLACK_BOT_TOKEN: "Slack bot token (xoxb-...) with chat:write, channels:history, channels:read, groups:read, groups:history, app_mentions:read scopes"
