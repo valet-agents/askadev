@@ -1,6 +1,6 @@
 # AskADev
 
-Answers questions about GitHub repos in Slack. When mentioned or asked about a repo, researches the codebase and recent commits to provide informed answers in-thread.
+A [Valet](https://valet.dev) agent that answers questions about GitHub repos in Slack. When mentioned or asked about a repo, researches the codebase and recent commits to provide informed answers in-thread.
 
 <table>
   <tr>
