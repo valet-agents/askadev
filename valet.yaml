@@ -2,6 +2,24 @@ name: askadev
 display_name: AskADev
 description: "Answers questions about GitHub repos in Slack. When mentioned or asked about a repo, researches the codebase and recent commits to provide informed answers in-thread."
 category: developer-tools
+author: Valet
+
+story:
+  hero: "A Slack bot that reads your code before it answers."
+  subheadline: "Ask a question about a GitHub repo in Slack. AskADev researches the actual code and commit history, then replies in-thread with sources."
+  steps:
+    - role: trigger
+      title: "Someone asks a question in Slack."
+      body: "'Where do we handle webhook retries?' or 'What changed in auth this week?' — @mention the bot or post in a channel it's in."
+      catalog: slack-webhook
+    - role: action
+      title: "AskADev reads the code."
+      body: "Searches files, reads implementations, pulls recent commits. Every answer is grounded in real code — no guessing."
+      catalog: github
+    - role: outcome
+      title: "Replies in-thread — with sources."
+      body: "Posts a focused answer back in the same thread, linking to the exact files and commits it used."
+      catalog: slack-mcp
 
 connectors:
   - catalog: slack-mcp
@@ -9,13 +27,26 @@ connectors:
     slot_descriptions:
       SLACK_BOT_TOKEN: "Slack bot token (xoxb-...) with chat:write, channels:history, channels:read, groups:read, groups:history, app_mentions:read scopes"
       SLACK_TEAM_ID: "Slack workspace team ID (starts with T)"
+    ui:
+      headline: "Give AskADev a voice in Slack."
+      blurb: "Uses a bot token to read context from the thread and post the answer back in the same thread — never a new message."
+      done_note: "Ready to reply in-thread"
 
   - catalog: github-mcp
     description: "GitHub MCP server for browsing repos, reading files, and fetching recent commits"
     slot_descriptions:
       GITHUB_PERSONAL_ACCESS_TOKEN: "GitHub personal access token with repo read access"
+    ui:
+      headline: "Point AskADev at your repo."
+      blurb: "AskADev reads your code when it answers — like a new hire would. Read-only; it never pushes, opens PRs, or files issues."
+      done_note: "Connected to your repo"
 
 channels:
   - catalog: slack-webhook
     description: "Receives Slack messages and app mentions. Filters for questions about GitHub repos and responds in-thread."
     slot_descriptions:
+      SLACK_SIGNING_SECRET: "Slack app signing secret for webhook verification"
+    ui:
+      headline: "Let AskADev hear your team in Slack."
+      blurb: "Subscribes to @-mentions and messages in the channels the bot is invited to. Questions that aren't about code get ignored."
+      done_note: "Listening in channels you invite it to"
