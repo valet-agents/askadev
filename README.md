@@ -14,7 +14,7 @@ Ask a question about a GitHub repo in Slack. AskADev researches the actual code 
   <tr>
     <td colspan="2" align="center">
       <br />
-      <a href="https://dashboard.valet.dev/setup/configure?from=github.com/valet-agents/askadev">
+      <a href="https://dashboard.valet.dev/deploy?from=github.com/valet-agents/askadev">
         <img src="https://raw.githubusercontent.com/valet-agents/askadev/main/.github/deploy-button.svg" alt="Deploy Agent →" height="40" />
       </a>
       <br /><br />
