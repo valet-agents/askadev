@@ -1,6 +1,6 @@
 # AskADev
 
-Answers questions about GitHub repos in Slack. When mentioned or asked about a repo, researches the codebase and recent commits to provide informed answers in-thread.
+Ask a question about a GitHub repo in Slack. AskADev researches the actual code and commit history, then replies in-thread with sources.
 
 <table>
   <tr>
