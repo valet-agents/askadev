@@ -4,6 +4,9 @@ description: "Answers questions about GitHub repos in Slack. When mentioned or a
 category: developer-tools
 author: Valet
 
+example:
+  prompt: "Where do we handle the Stripe webhook retry logic?"
+
 story:
   hero: "A Slack bot that reads your code before it answers."
   subheadline: "Ask a question about a GitHub repo in Slack. AskADev researches the actual code and commit history, then replies in-thread with sources."
